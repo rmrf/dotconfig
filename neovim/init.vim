@@ -21,6 +21,8 @@ call plug#begin()
   "Plug 'rstacruz/vim-closer'
   Plug 'fatih/molokai'
 
+
+  
   " Use release branch (recommend)
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
