@@ -1,0 +1,36 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: "备份任务开始" 
+  END: "备份任务结束" 
+
+tasks:
+  default:
+      - echo "{{.GREETING}}"
+      - task: password-store
+      - task: dotconfig
+      - echo "{{.END}}"
+
+  password-store:
+    cmds:
+      - echo start password backup...
+      - cd ~/.password-store/;git fetch; git rebase; git push origin master
+      - echo "backup done"
+    silent: false
+
+  dotconfig:
+    cmds:
+      - cp ~/.config/nvim/coc-settings.json ~/dotconfig/neovim/coc-settings.json 
+      - cp ~/.config/nvim/init.vim ~/dotconfig/neovim/init.vim
+      - cp ~/.tmux.conf ~/dotconfig/tmux/tmux.conf
+      - cp ~/Taskfile.yml ~/dotconfig/task/Taskfile.yml
+      - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase; git push origin main
+    silent: false
+    ignore_error: true
+
+  lc:
+    cmds:
+      - cd ~/Code/Learn/leetCode/leetcodegolang/;git lg
+    silent: false
