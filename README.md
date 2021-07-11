@@ -1,0 +1,2 @@
+# dotconfig
+home directory configurations
