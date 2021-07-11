@@ -1,6 +1,6 @@
 # dotconfig
 
-Home directory configurations
+Home directory configurations(auto backup)
 
 ## Tmux
  - read the readme markdown file under tmux folder
