@@ -9,15 +9,23 @@ vars:
 tasks:
   default:
       - echo "{{.GREETING}}"
-      - task: password-store
+        #      - task: password_store
       - task: dotconfig
+      - task: info_backup
       - echo "{{.END}}"
 
-  password-store:
+  password_store:
     cmds:
       - echo start password backup...
       - cd ~/.password-store/;git fetch; git rebase; git push origin master
-      - echo "backup done"
+      - echo "[+] backup done"
+    silent: false
+
+  info_backup:
+    cmds:
+      - echo start information backup
+      - cd ~/Leyan/information/;git commit -a -m 'autocommit on change' ;git fetch; git rebase; git push origin master
+      - echo "[+] information backup done"
     silent: false
 
   dotconfig:
