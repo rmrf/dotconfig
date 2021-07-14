@@ -10,12 +10,13 @@ Home directory configurations(auto backup)
  - `:PlugInstall`
  - [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
 
- - Golang code tips
+ - Coding tips
 ```
  - <leader>cc, <leader>cu  # comment and uncomment
  - <leader>b, r, t  # go code Build,Run,Test
  - C-m, C-a # go code error switch and close
  - gd,gy,gi,gr
+ - zR, zM  # Markdown fold and unfold
  - K # check func doc
  - <leader>rn  # rename 
  - code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
