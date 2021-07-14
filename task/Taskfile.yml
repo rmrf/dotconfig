@@ -17,14 +17,14 @@ tasks:
   password_store:
     cmds:
       - echo start password backup...
-      - cd ~/.password-store/;git fetch; git rebase; git push origin master
+      - cd ~/.password-store/;git fetch; git rebase master; git push origin master
       - echo "[+] backup done"
     silent: false
 
   info_backup:
     cmds:
       - echo start information backup
-      - cd ~/Leyan/information/;git commit -a -m 'autocommit on change' ;git fetch; git rebase; git push origin master
+      - cd ~/Leyan/information/;git commit -a -m 'autocommit on change' ;git fetch; git rebase master; git push origin master
       - echo "[+] information backup done"
     silent: false
     ignore_error: true
@@ -35,7 +35,7 @@ tasks:
       - cp ~/.config/nvim/init.vim ~/dotconfig/neovim/init.vim
       - cp ~/.tmux.conf ~/dotconfig/tmux/tmux.conf
       - cp ~/Taskfile.yml ~/dotconfig/task/Taskfile.yml
-      - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase; git push origin main
+      - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase master; git push origin main
     silent: false
     ignore_error: true
 
