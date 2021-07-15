@@ -31,13 +31,19 @@ call plug#begin()
 
   Plug 'preservim/nerdcommenter'
 
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
 
 call plug#end()
 
 
 " -------------------------General --------------------------------
-" 使用 C-b 而不是tab ，避免与 Coc冲突
-let g:UltiSnipsExpandTrigger="<c-b>"
+" 使用 C-i 而不是tab ，避免与 Coc冲突
+let g:UltiSnipsExpandTrigger="<c-i>"
 
 
 "This enables share clipboard between VIM and X clipboard.
