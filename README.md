@@ -22,6 +22,7 @@ Home directory configurations(auto backup)
  - code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
    - C-i # code snip complate
  - C-V  # preview markdown file in GUI: Need install goneovim 
+ - Files, History, Commits, GFiles? # fzf tips
   
 ```
  - NerdTree tips
