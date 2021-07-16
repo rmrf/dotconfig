@@ -25,6 +25,7 @@ tasks:
     cmds:
       - echo start information backup
       - cd ~/Leyan/information/;git commit -a -m 'autocommit on change' ;git fetch; git rebase master; git push origin master
+      - cd ~/Leyan/information/; git push origin master
       - echo "[+] information backup done"
     silent: false
     ignore_error: true
@@ -36,6 +37,8 @@ tasks:
       - cp ~/.tmux.conf ~/dotconfig/tmux/tmux.conf
       - cp ~/Taskfile.yml ~/dotconfig/task/Taskfile.yml
       - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase main; git push origin main
+      - cd ~/dotconfig/;  git push origin main
+      - echo "[+] dotconfig backup done"
     silent: false
     ignore_error: true
 
