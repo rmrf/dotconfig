@@ -24,6 +24,7 @@ Home directory configurations(auto backup)
    - C-i # code snip complate
  - C-V  # preview markdown file in GUI: Need install goneovim 
  - Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
+ - Gwrite, Gcommit, Gblame  # for git operation
   
 ```
  - NerdTree tips
