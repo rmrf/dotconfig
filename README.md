@@ -19,6 +19,7 @@ Home directory configurations(auto backup)
  - gd,gy,gi,gr  # c-o for go back
  - zR, zM  # Markdown fold and unfold
  - K # check func doc
+ - % # for jump between parenthesis
  - <leader>rn  # rename golang val/func name
  - code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
    - C-i # code snip complate
