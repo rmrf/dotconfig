@@ -42,7 +42,7 @@ tasks:
     silent: false
     ignore_error: true
 
-  lc:
+  pull:
     cmds:
-      - cd ~/Code/Learn/leetCode/leetcodegolang/;git lg
-    silent: false
+      - cd ~/Code/GO/temporalRelated/temporal;git pull origin master; git lg
+    silent: true

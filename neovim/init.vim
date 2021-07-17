@@ -45,6 +45,8 @@ call plug#end()
 " 使用 C-i 而不是tab ，避免与 Coc冲突
 let g:UltiSnipsExpandTrigger="<c-i>"
 
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 "This enables share clipboard between VIM and X clipboard.
 " Nerdtree 中的copy path才可以copy出来
