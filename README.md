@@ -8,7 +8,7 @@ Home directory configurations(auto backup)
 ## Neovim
 	- Place `init.vim` under `~/.config/nvim/`
 	- `:PlugInstall`
-	- `sudo apt-get install fonts-powerline` for https://github.com/powerline/fonts
+	- `sudo apt-get install fonts-powerline silversearcher-ag` for https://github.com/powerline/fonts and Ag
 	- [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
 	- [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow its way.
 
@@ -26,6 +26,8 @@ Home directory configurations(auto backup)
 	- C-V  # preview markdown file in GUI: Need install goneovim 
 	- Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
 	- Gwrite, Gcommit, Gblame  # for git operation
+	- :Ag # for code search
+		- shift + Up/Down for scroll inside the preview window
 
 ### NerdTree tips
 	- t,T for open new tab
