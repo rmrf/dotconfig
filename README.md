@@ -13,7 +13,7 @@ Home directory configurations(auto backup)
 	- [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow its way.
 
 ### Coding tips
-	- <leader>cc, <leader>cu  # comment and uncomment
+	- <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
 	- <leader>b, r, t  # go code Build,Run,Test
 	- C-m, C-a # go code error switch and close
 	- gd,gy,gi,gr  # c-o for go back
