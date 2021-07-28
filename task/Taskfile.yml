@@ -42,7 +42,13 @@ tasks:
     silent: false
     ignore_error: true
 
-  pull:
+  wf:
     cmds:
-      - cd ~/Code/GO/temporalRelated/temporal;git pull origin master; git lg
+      - cd ~/Code/GO/temporalRelated/temporal;git pull origin master; gh issue list;gh pr list
+      - echo ~/Code/GO/temporalRelated/temporal
+    silent: true
+
+  wk:
+    cmds:
+      - cd ~/Github/weekly;git pull origin master; gh issue list; code .
     silent: true
