@@ -20,8 +20,6 @@ call plug#begin()
 
   "Plug 'rstacruz/vim-closer'
   Plug 'fatih/molokai'
-
-
   
   " Use release branch (recommend)
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -133,6 +131,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
+
 
 
 "----------------GO-------------------

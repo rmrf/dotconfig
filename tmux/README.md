@@ -46,3 +46,14 @@ such as:
 #### Miscellaneous
 
     t show the time in current pane
+	# enter copy mode
+	C-b/` [ 
+	# mark selection start
+	space
+	# copy region
+	Alt+w
+	enter
+	# Paste selecton
+	C-b/` ]
+	# see all paster buffers
+	C-b/` #
