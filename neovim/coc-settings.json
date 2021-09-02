@@ -1,4 +1,5 @@
 {
+"tsserver.trace.server": "verbose",
   "languageserver": {
     "go": {
       "command": "gopls",
