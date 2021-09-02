@@ -16,7 +16,10 @@ Home directory configurations(auto backup)
 	- <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
 	- <leader>b, r, t  # go code Build,Run,Test
 	- C-m, C-a # go code error switch and close
+	- [g, ]g   # go to error position
 	- gd,gy,gi,gr  # c-o for go back
+	- gD  # open Defination window in new Tab
+	- C-l,C-h,C-n  #tab left, right, new
 	- zR, zM  # Markdown fold and unfold
 	- K # check func doc
 	- % # for jump between parenthesis
@@ -31,7 +34,6 @@ Home directory configurations(auto backup)
 
 ### NerdTree tips
 	- t,T for open new tab
-	- C-l,C-h,C-n  #tab left,right, new
 	- ? for help
 	- m-p for copy path into clipboard
 
