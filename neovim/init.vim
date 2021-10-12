@@ -289,11 +289,11 @@ function! RemoveNextDoubleChar(char)
     end
 endfunction
 
-inoremap <BS> <ESC>:call RemovePairs()<CR>a
-inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
-inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
-inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
-inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
+"inoremap <BS> <ESC>:call RemovePairs()<CR>a
+"inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
+"inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
+"inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
+"inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
 
 
 
