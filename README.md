@@ -11,21 +11,24 @@ Home directory configurations(auto backup)
 - Download [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim), and place it inside your PATH, I would suggest rename it to `vim`
 - as root Install Nodejs `curl -sL install-node.now.sh/lts | bash`
 - as root `npm install -g yarn`
-- `mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/`
-- `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
-- `cp neovim/* ~/.config/nvim/`
-- neovim then `:PlugInstall`
-- `cd ~/.config/nvim/plugged/coc.nvim; yarn install`, if have troulbe , check ~/.npmrc
-- `sudo apt-get install fonts-powerline silversearcher-ag` for https://github.com/powerline/fonts and Ag
+- Install plug.vim
+	```
+	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  \ 
+	   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+	cp neovim/* ~/.config/nvim/
+	mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/`
+	```
+- neovim/vim then `:PlugInstall`
+- `cd ~/.config/nvim/plugged/coc.nvim; yarn install`, if have network troulbe , check ~/.npmrc
+- `sudo apt-get install fonts-powerline silversearcher-ag` for [powerline](https://github.com/powerline/fonts) and Ag Search
 - [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
-- [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow bellow way.
-```
+- [vim-fugitive](https://github.com/tpope/vim-fugitive) for Git related cmd, follow bellow way to install.
+	```
 	mkdir -p ~/.config/nvim/pack/tpope/start
 	cd ~/.config/nvim/pack/tpope/start
 	git clone https://tpope.io/vim/fugitive.git
 	vim -u NONE -c "helptags fugitive/doc" -c q
-
-```
+	```
 
 ### Coding tips
 
