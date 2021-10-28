@@ -8,6 +8,7 @@ Home directory configurations(auto backup)
 
 ## Neovim (for Linux User)
 
+- Download [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim), and place it inside your PATH, I would suggest rename it to `vim`
 - as root Install Nodejs `curl -sL install-node.now.sh/lts | bash`
 - as root `npm install -g yarn`
 - `mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/`
@@ -18,10 +19,13 @@ Home directory configurations(auto backup)
 - `sudo apt-get install fonts-powerline silversearcher-ag` for https://github.com/powerline/fonts and Ag
 - [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
 - [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow bellow way.
+```
 	mkdir -p ~/.config/nvim/pack/tpope/start
 	cd ~/.config/nvim/pack/tpope/start
 	git clone https://tpope.io/vim/fugitive.git
 	vim -u NONE -c "helptags fugitive/doc" -c q
+
+```
 
 ### Coding tips
 
