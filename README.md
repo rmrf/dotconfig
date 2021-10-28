@@ -14,9 +14,9 @@ Home directory configurations(auto backup)
 - Install plug.vim
 	```
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  \ 
-	   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+	   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp neovim/* ~/.config/nvim/
-	mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/`
+	mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/
 	```
 - neovim/vim then `:PlugInstall`
 - `cd ~/.config/nvim/plugged/coc.nvim; yarn install`, if have network troulbe , check ~/.npmrc
