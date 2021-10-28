@@ -3,37 +3,50 @@
 Home directory configurations(auto backup)
 
 ## Tmux
-	- read the readme markdown file under tmux folder
 
-## Neovim
-	- Place `init.vim` under `~/.config/nvim/`
-	- `:PlugInstall`
-	- `sudo apt-get install fonts-powerline silversearcher-ag` for https://github.com/powerline/fonts and Ag
-	- [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
-	- [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow its way.
+- read the readme markdown file under tmux folder
+
+## Neovim (for Linux User)
+
+- as root Install Nodejs `curl -sL install-node.now.sh/lts | bash`
+- as root `npm install -g yarn`
+- `mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/`
+- `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+- `cp neovim/* ~/.config/nvim/`
+- neovim then `:PlugInstall`
+- `cd ~/.config/nvim/plugged/coc.nvim; yarn install`, if have troulbe , check ~/.npmrc
+- `sudo apt-get install fonts-powerline silversearcher-ag` for https://github.com/powerline/fonts and Ag
+- [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
+- [vim-fugitive](https://github.com/tpope/vim-fugitive) install follow bellow way.
+	mkdir -p ~/.config/nvim/pack/tpope/start
+	cd ~/.config/nvim/pack/tpope/start
+	git clone https://tpope.io/vim/fugitive.git
+	vim -u NONE -c "helptags fugitive/doc" -c q
 
 ### Coding tips
-	- <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
-	- <leader>b, r, t  # go code Build,Run,Test
-	- C-m, C-a # go code error switch and close
-	- [g, ]g   # go to error position
-	- gd,gy,gi,gr  # c-o for go back
-	- gD  # open Defination window in new Tab
-	- C-l,C-h,C-n  #tab left, right, new
-	- zR, zM  # Markdown fold and unfold
-	- K # check func doc
-	- % # for jump between parenthesis
-	- <leader>rn  # rename golang val/func name
-	- code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
-	  - C-i # code snip complate
-	- C-V  # preview markdown file in GUI: Need install goneovim 
-	- Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
-	- Gwrite, Gcommit, Gblame  # for git operation
-	- :Ag # for code search
-		- shift + Up/Down for scroll inside the preview window
+
+- <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
+- <leader>b, r, t  # go code Build,Run,Test
+- C-m, C-a # go code error switch and close
+- [g, ]g   # go to error position
+- gd,gy,gi,gr  # c-o for go back
+- gD  # open Defination window in new Tab
+- C-l,C-h,C-n  #tab left, right, new
+- zR, zM  # Markdown fold and unfold
+- K # check func doc
+- % # for jump between parenthesis
+- <leader>rn  # rename golang val/func name
+- code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
+	- C-i # code snip complate
+- C-V  # preview markdown file in GUI: Need install goneovim 
+- Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
+- Gwrite, Gcommit, Gblame  # for git operation
+- :Ag # for code search
+	- shift + Up/Down for scroll inside the preview window
 
 ### NerdTree tips
-	- t,T for open new tab
-	- ? for help
-	- m-p for copy path into clipboard
+
+- t,T for open new tab
+- ? for help
+- m-p for copy path into clipboard
 
