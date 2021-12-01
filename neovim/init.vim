@@ -132,6 +132,9 @@ map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
 
+" 切换buffer
+map gn :bn<cr>
+map gp :bp<cr>
 
 
 "----------------GO-------------------
