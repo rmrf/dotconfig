@@ -30,14 +30,17 @@ Home directory configurations(auto backup)
 	vim -u NONE -c "helptags fugitive/doc" -c q
 	```
 
-### Coding tips
+### Vim Coding tips
 
+- <leader> is ,
 - <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
-- <leader>b, r, t  # go code Build,Run,Test
-- C-m, C-a # go code error switch and close
+- <leader>b, r, t  # golang code Build,Run,Test
 - [g, ]g   # go to error position
+- C-m, C-a # go code error switch and close
 - gd,gy,gi,gr  # c-o for go back
-- gD  # open Defination window in new Tab
+- gn,gp  # switch buffer
+- C-6, Buffers # Switch recent 2 buffer, List all the Buffers
+- gD  # open Defination window in new Tab (easily switch left and right)
 - C-l,C-h,C-n  #tab left, right, new
 - zR, zM  # Markdown fold and unfold
 - K # check func doc
@@ -45,9 +48,8 @@ Home directory configurations(auto backup)
 - <leader>rn  # rename golang val/func name
 - code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
 	- C-i # code snip complate
-- C-V  # preview markdown file in GUI: Need install goneovim 
 - Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
-- Gwrite, Gcommit, Gblame  # for git operation
+- Gwrite(Gw), Gcommit, Gblame  # for git operation
 - :Ag # for code search
 	- shift + Up/Down for scroll inside the preview window
 
