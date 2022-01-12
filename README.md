@@ -32,6 +32,7 @@ Home directory configurations(auto backup)
 
 ### Vim Coding tips
 
+```
 - <leader> is ,
 - <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
 - <leader>b, r, t  # golang code Build,Run,Test
@@ -52,10 +53,12 @@ Home directory configurations(auto backup)
 - Gwrite(Gw), Gcommit, Gblame  # for git operation
 - :Ag # for code search
 	- shift + Up/Down for scroll inside the preview window
+```
 
 ### NerdTree tips
 
+```
 - t,T for open new tab
 - ? for help
 - m-p for copy path into clipboard
-
+```
