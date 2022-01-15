@@ -51,8 +51,11 @@ Home directory configurations(auto backup)
 	- C-i # code snip complate
 - Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
 - Gwrite(Gw), Gcommit, Gblame  # for git operation
+- Buffers(Bu)  # Browse and Switch Buffers
+- Colors  # change colorscheme
 - :Ag # for code search
 	- shift + Up/Down for scroll inside the preview window
+	- C-/ to switch on/off preview
 ```
 
 ### NerdTree tips
