@@ -52,6 +52,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Nerdtree 中的copy path才可以copy出来
 set clipboard=unnamedplus
 
+set winwidth=82
 
 set number relativenumber
 set encoding=utf-8
