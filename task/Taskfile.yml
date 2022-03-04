@@ -36,7 +36,7 @@ tasks:
       - cp ~/.config/nvim/init.vim ~/dotconfig/neovim/init.vim
       - cp ~/.tmux.conf ~/dotconfig/tmux/tmux.conf
       - cp ~/Taskfile.yml ~/dotconfig/task/Taskfile.yml
-      - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase main; git push origin main
+      - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase main; git push origin main; git push tee main
       - cd ~/dotconfig/;  git push origin main
       - echo "[+] dotconfig backup done"
     silent: false
