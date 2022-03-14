@@ -37,6 +37,12 @@ call plug#begin()
 
   Plug 'cespare/vim-toml'
 
+  " javascript 
+	Plug 'pangloss/vim-javascript'
+	Plug 'leafgarland/typescript-vim'
+	Plug 'peitalin/vim-jsx-typescript'
+	Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+	Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -149,6 +155,9 @@ autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit'
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 
 let g:go_test_timeout = '10s'
 let g:go_version_warning = 1
@@ -171,6 +180,10 @@ let g:go_fmt_command = "goimports"
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
 
 " --------------------- git ------------------
 "
@@ -222,6 +235,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> L :call CocAction('doHover')<CR>
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
