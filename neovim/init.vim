@@ -270,7 +270,7 @@ inoremap [ []<LEFT>
 inoremap { {}<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-inoremap < <><LEFT>
+"inoremap < <><LEFT>
 
 function! RemovePairs()
     let s:line = getline(".")
@@ -315,6 +315,11 @@ endfunction
 "inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
 
 
+
+
+
+com! FormatJSON %!python -m json.tool
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
 
 
