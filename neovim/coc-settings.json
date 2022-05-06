@@ -16,5 +16,6 @@
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
+  "javascript.validate.enable":false,
   "javascript.suggestionActions.enabled": false
 }
