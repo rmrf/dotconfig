@@ -35,6 +35,7 @@ tasks:
       - cp ~/.config/nvim/coc-settings.json ~/dotconfig/neovim/coc-settings.json 
       - cp ~/.config/nvim/init.vim ~/dotconfig/neovim/init.vim
       - cp ~/.tmux.conf ~/dotconfig/tmux/tmux.conf
+      - cp ~/.spacemacs ~/dotconfig/spacemacs
       - cp ~/Taskfile.yml ~/dotconfig/task/Taskfile.yml
       - cd ~/dotconfig/; git commit -a -m 'autocommit on change'; git fetch; git rebase main; git push origin main; git push tee main
       - cd ~/dotconfig/;  git push origin main
