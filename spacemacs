@@ -34,9 +34,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(nginx
      sql
-     emoji
      csv
-     emms
      yaml
      (terraform :variables
                 terraform-auto-format-on-save t)
@@ -66,13 +64,9 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
-
      spell-checking
      syntax-checking
      version-control
-     hackernews
-     pianobar
-     search-engine
      treemacs)
 
 
