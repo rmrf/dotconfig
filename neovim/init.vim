@@ -443,4 +443,5 @@ com! FormatJSON %!python -m json.tool
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
 
+let g:go_gopls_options = ['-remote=unix;/tmp/gopls-daemon-socket']
 
