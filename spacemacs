@@ -52,6 +52,10 @@ This function should only modify configuration layer settings."
                  javascript-backend 'lsp
                  javascript-lsp-linter nil
                  javascript-fmt-tool 'web-beautify
+                 javascript-fmt-on-save t
+                 node-add-modules-path t
+                 js2-mode-show-strict-warnings nil
+                 js2-mode-show-parse-errors nil
                  javascript-import-tool 'import-js)
      html
      markdown
