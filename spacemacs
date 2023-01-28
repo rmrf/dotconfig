@@ -32,44 +32,16 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(ansible
-     rust
-     nginx
-     (python :variables
-             python-formatter 'yapf
-             python-backend 'lsp
-             python-format-on-save t
-             python-save-before-test nil
-             python-fill-column 99
-             python-sort-imports-on-save t
-             python-lsp-server 'mspyls)
-     sql
-     csv
+   '(sql
      yaml
-     (terraform :variables
-                terraform-auto-format-on-save t)
-     (javascript :variables
-                 javascript-backend 'lsp
-                 javascript-lsp-linter nil
-                 javascript-fmt-tool 'web-beautify
-                 javascript-fmt-on-save t
-                 node-add-modules-path t
-                 js2-mode-show-strict-warnings nil
-                 js2-mode-show-parse-errors nil
-                 javascript-import-tool 'import-js)
-     html
      markdown
-     (go :variables
-         go-format-before-save t
-         go-tab-Width 4
-         gofmt-command "goimports"
-         go-use-golangci-lint t)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      company-emoji-insert-unicode nil)
      better-defaults
      emacs-lisp
      (git :variables
