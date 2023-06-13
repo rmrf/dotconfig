@@ -9,12 +9,11 @@ Home directory configurations(auto backup)
 ## Neovim (for Linux User)
 
 - Download [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim), and place it inside your PATH, I would suggest rename it to `vim`
-- as root Install Nodejs `curl -sL install-node.now.sh/lts | bash`
-- as root `npm install -g yarn`
+- as root Install Nodejs/yarn: https://nodejs.org
 - Install plug.vim
 	```
-	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  \ 
-	   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	# inside dotconfig folder
+	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp neovim/* ~/.config/nvim/
 	mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/
 	```
