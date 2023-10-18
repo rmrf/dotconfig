@@ -45,8 +45,8 @@ tasks:
 
   wf:
     cmds:
-      - cd ~/Code/GO/temporalRelated/temporal;git pull origin master; gh issue list;gh pr list
-      - echo ~/Code/GO/temporalRelated/temporal
+      - cd ~/TemporalRelated/temporal;git pull origin main; gh issue list;gh pr list
+      - echo ~/TemporalRelated/temporal
     silent: true
 
   wk:
