@@ -15,7 +15,7 @@ call plug#begin()
   " 可以在 vim 中使用 tab 补全
   Plug 'vim-scripts/SuperTab'
   Plug 'godlygeek/tabular' "必要插件，安装在vim-markdown前面
-  Plug 'plasticboy/vim-markdown'
+ " Plug 'plasticboy/vim-markdown'
 
   " colorscheme one 
   Plug 'rakr/vim-one'
@@ -443,5 +443,5 @@ com! FormatJSON %!python -m json.tool
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
 
-let g:go_gopls_options = ['-remote=unix;/tmp/gopls-daemon-socket']
-
+"let g:go_gopls_options = ['-remote=unix;/tmp/gopls-daemon-socket']
+let g:go_gopls_enabled = 1
