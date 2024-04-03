@@ -18,7 +18,7 @@ Home directory configurations(auto backup)
 	mkdir -p ~/.config/nvim/plugged; mkdir -p ~/.config/nvim/autoload/
 	```
 - neovim/vim then `:PlugInstall`
-- `cd ~/.config/nvim/plugged/coc.nvim; yarn install`, if have network troulbe , check ~/.npmrc
+- `cd ~/.local/share/nvim/plugged/coc.nvim/; yarn install`, if have network troulbe , check ~/.npmrc
 - `sudo apt-get install fonts-powerline silversearcher-ag` for [powerline](https://github.com/powerline/fonts) and Ag Search
 - [gitgutter](https://github.com/airblade/vim-gitgutter) install follow its way.
 - [vim-fugitive](https://github.com/tpope/vim-fugitive) for Git related cmd, follow bellow way to install.
