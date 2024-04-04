@@ -28,6 +28,15 @@ Home directory configurations(auto backup)
 	git clone https://tpope.io/vim/fugitive.git
 	vim -u NONE -c "helptags fugitive/doc" -c q
 	```
+ - when sshed from source box to target box, use vim yank copy text to source box clipboard, you should enable X11 Forward
+ - example host config inside `~/.ssh/config`
+	```
+	Host TargetBox
+		User xx
+		Hostname xxxxxxx
+	    	ForwardX11 yes
+	
+	```
 
 ### Vim Coding tips
 
