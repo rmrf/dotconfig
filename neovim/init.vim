@@ -4,17 +4,11 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'AndrewRadev/splitjoin.vim'
-  ""Plug 'SirVer/ultisnips'
-  " Snippets are separated from the engine. Add this if you want them:
-  Plug 'honza/vim-snippets'
 
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  "
 
   " colorscheme one 
   Plug 'rakr/vim-one'
-
-  "Plug 'rstacruz/vim-closer'
   Plug 'fatih/molokai'
   
   " Or build from source code by using yarn: https://yarnpkg.com
@@ -46,6 +40,9 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
+
+	"codeium
+	Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -299,36 +296,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-" --------------------- coc snippets------------------
-"
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ CheckBackSpace() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! CheckBackSpace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
-
 " --------------------- GoNeoVim ------------------
 map  <M-V> :GonvimMarkdown<CR>
 
@@ -394,7 +361,29 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 
-"nvim-cmp
+"================= Codeium =================
+let g:codeium_enabled = v:true
+"let g:codeium_manual = v:true
+"
+
+let g:codeium_filetypes_disabled_by_default = v:true
+let g:codeium_filetypes = {
+    \ "rust": v:true,
+    \ "go": v:true,
+    \ "python": v:true,
+    \ "typescript": v:true,
+    \ }
+
+let g:codeium_no_map_tab = 1
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+imap <C-]>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <M-]>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
+
+
+"================= Codeium =================
+
+" ====================== nvim-cmp ================
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
@@ -516,3 +505,5 @@ lua <<EOF
      capabilities = capabilities
   }
 EOF
+
+
