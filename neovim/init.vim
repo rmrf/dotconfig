@@ -11,11 +11,6 @@ call plug#begin()
   Plug 'Xuyuanp/nerdtree-git-plugin'
   " 自动补全括号的插件，包括小括号，中括号，以及花括号
   "
-  "Plug 'jiangmiao/auto-pairs'
-  " 可以在 vim 中使用 tab 补全
-  Plug 'vim-scripts/SuperTab'
-  Plug 'godlygeek/tabular' "必要插件，安装在vim-markdown前面
- " Plug 'plasticboy/vim-markdown'
 
   " colorscheme one 
   Plug 'rakr/vim-one'
@@ -23,19 +18,12 @@ call plug#begin()
   "Plug 'rstacruz/vim-closer'
   Plug 'fatih/molokai'
   
-  " Use release branch (recommend)
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   " Or build from source code by using yarn: https://yarnpkg.com
   Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-
   Plug 'preservim/nerdcommenter'
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
 
   Plug 'cespare/vim-toml'
 
@@ -75,8 +63,7 @@ let g:airline#extensions#tabline#enabled = 1
 set clipboard=unnamedplus
 
 set winwidth=82
-
-set number relativenumber
+set number
 set encoding=utf-8
 
 " Give more space for displaying messages.
@@ -104,13 +91,12 @@ filetype plugin indent on    " 启用自动补全
 
 " 开启24bit的颜色，开启这个颜色会更漂亮一些
 set termguicolors
-colorscheme one " 主题
-set background=dark " 主题背景 dark-深色; light-浅色
+"colorscheme one " 主题
+"set background=dark " 主题背景 dark-深色; light-浅色
 
-"let g:rehash256 = 1
-"let g:molokai_original = 1
-"colorscheme molokai
-
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -197,9 +183,7 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
+let g:coc_global_extensions = [  'coc-tsserver'  ]
 
 " --------------------- git ------------------
 "
@@ -244,9 +228,6 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" Use <c-k> to trigger completion.
-inoremap <silent><expr> <c-k> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -302,31 +283,6 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -377,10 +333,6 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#_select_confirm() :
@@ -442,13 +394,6 @@ function! RemoveNextDoubleChar(char)
         execute "normal! i" . a:char . ""
     end
 endfunction
-
-"inoremap <BS> <ESC>:call RemovePairs()<CR>a
-"inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
-"inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
-"inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
-"inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
-
 
 
 
@@ -567,7 +512,6 @@ lua <<EOF
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['gopls'].setup {
     on_attach=on_attach,
     capabilities = capabilities,
