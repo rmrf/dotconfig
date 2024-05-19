@@ -44,6 +44,8 @@ call plug#begin()
 	"codeium
 	Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 
+	Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 
 
@@ -362,8 +364,9 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 
 "================= Codeium =================
-let g:codeium_enabled = v:true
-"let g:codeium_manual = v:true
+let g:codeium_enabled = v:false
+" use ,c to Trigger on/off"
+let g:codeium_manual = v:true
 "
 
 let g:codeium_filetypes_disabled_by_default = v:true
@@ -382,6 +385,13 @@ imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
 
 "================= Codeium =================
+
+"=========== floaterm ============"
+nnoremap <leader>y :<C-u>FloatermNew --width=0.8 --height=0.8 yazi<CR>
+nnoremap <leader>g :<C-u>FloatermNew --width=0.9 --height=0.9 lazygit<CR>
+nnoremap <leader>c :<C-u>CodeiumToggle<CR>
+nnoremap <leader>f :<C-u>FloatermNew --width=0.8 --height=0.8 fzf<CR>
+"=========== floaterm ============"
 
 " ====================== nvim-cmp ================
 set completeopt=menu,menuone,noselect

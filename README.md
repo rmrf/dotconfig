@@ -28,15 +28,19 @@ Home directory configurations(auto backup)
 	git clone https://tpope.io/vim/fugitive.git
 	vim -u NONE -c "helptags fugitive/doc" -c q
 	```
- - when sshed from source box to target box, use vim yank copy text to source box clipboard, you should enable X11 Forward
- - example host config inside `~/.ssh/config`
+- when sshed from source box to target box, use vim yank copy text to source box clipboard, you should enable X11 Forward
+- example host config inside `~/.ssh/config`
 	```
 	Host TargetBox
 		User xx
 		Hostname xxxxxxx
 	    	ForwardX11 yes
-	
 	```
+- Codeium for code generation
+```
+:Codeium Auth
+```
+            
 
 ### Vim Coding tips
 
@@ -54,16 +58,17 @@ Home directory configurations(auto backup)
 - zR, zM  # Markdown fold and unfold
 - K # check func doc
 - % # for jump between parenthesis
-- <leader>rn  # rename golang val/func name
-- code snips under ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets
-	- C-i # code snip complate
-- Files, History, Commits, GFiles? , Maps, Snippets # fzf tips
-- Gwrite(Gw), Gcommit, Gblame  # for git operation
+- `,rn`  # rename golang val/func name
 - Buffers(Bu)  # Browse and Switch Buffers
 - Colors  # change colorscheme
-- :Ag # for code search
-	- shift + Up/Down for scroll inside the preview window
-	- C-/ to switch on/off preview
+- code generation (with codeium on)
+    - `c-g` to accept, `c-x` to clear
+    - `c-]`, `m-]` to get next/previous suggestion
+- floaterm related
+    - `,g` for trigger lazygit
+    - `,f` for trigger fzf 
+    - `,y` for trigger yazi for file management
+    - `,c` for trigger codeium ON/OFF
 ```
 
 ### NerdTree tips
