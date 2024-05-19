@@ -9,7 +9,6 @@ call plug#begin()
   Plug 'honza/vim-snippets'
 
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  " 自动补全括号的插件，包括小括号，中括号，以及花括号
   "
 
   " colorscheme one 
@@ -52,14 +51,11 @@ call plug#end()
 
 
 " -------------------------General --------------------------------
-" 使用 C-i 而不是tab ，避免与 Coc冲突
-""let g:UltiSnipsExpandTrigger="<c-i>"
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 "This enables share clipboard between VIM and X clipboard.
-" Nerdtree 中的copy path才可以copy出来
 set clipboard=unnamedplus
 
 set winwidth=82
@@ -72,28 +68,22 @@ set cmdheight=2
 
 set cul
 "set cuc
-set showmatch " 显示括号匹配
+set showmatch 
 
-" tab 缩进
-set tabstop=4 " 设置Tab长度为4空格
-set shiftwidth=4 " 设置自动缩进长度为4空格
+set tabstop=4 
+set shiftwidth=4 " auto tab for 4 blanks
 set softtabstop=4
-set autoindent " 继承前一行的缩进方式，适用于多行注释
+set autoindent 
 
-" 定义快捷键的前缀，即<Leader>, 默认 \
 let mapleader="," 
-" vim  中打开term
-":nnoremap <leader>t :wincmd b \| bel terminal<CR>
 
 syntax enable
-syntax on                    " 开启文件类型侦测
-filetype plugin indent on    " 启用自动补全
+syntax on                    " filetype detect
+filetype plugin indent on    
 
-" 开启24bit的颜色，开启这个颜色会更漂亮一些
 set termguicolors
-"colorscheme one " 主题
-"set background=dark " 主题背景 dark-深色; light-浅色
-
+"colorscheme one 
+"set background=dark 
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
@@ -107,10 +97,9 @@ set nowritebackup
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
 set autowrite
 
-" 退出插入模式指定类型的文件自动保存
+" auto save
 au InsertLeave *.go,*.sh,*.py write
 
 
@@ -120,28 +109,21 @@ map <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" 显示行号
 let NERDTreeShowLineNumbers=1
-" 打开文件时是否显示目录
 let NERDTreeAutoCenter=1
-" 是否显示隐藏文件
-let NERDTreeShowHidden=0
-" 设置宽度
+let NERDTreeShowHidden=1
 let NERDTreeWinSize=31
-" 忽略一下文件的显示
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
-" 打开 vim 文件及显示书签列表
 let NERDTreeShowBookmarks=2
 
-" 在终端启动vim时，共享NERDTree
 let g:nerdtree_tabs_open_on_console_startup=1
 
-" 切换 tab
+" switch tab
 map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
 
-" 切换buffer
+" swith buffer
 map gn :bn<cr>
 map gp :bp<cr>
 
@@ -177,7 +159,7 @@ let g:godef_split=2
 let g:go_fmt_command = "goimports"
 
 
-" 在 error之间切换 
+" swith between error
 "map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
