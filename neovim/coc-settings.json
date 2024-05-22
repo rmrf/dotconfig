@@ -1,29 +1,33 @@
 {
-
-"tsserver.trace.server": "verbose",
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    }
-  },
+    "tsserver.trace.server": "verbose",
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "trace.server": "verbose",
+            "filetypes": [
+                "go"
+            ]
+        }
+    },
     "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  	"snippets.ultisnips.directories": [
-		"UltiSnips",
-		"gosnippets/UltiSnips"
-	],
-  "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true,
-  "javascript.validate.enable":false,
-  "javascript.suggestionActions.enabled": false,
-
-  "go.goplsArgs": ["-remote", "unix;/tmp/gopls-daemon-socket"]
-
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "gosnippets/UltiSnips"
+    ],
+    "tsserver.formatOnType": true,
+    "coc.preferences.formatOnType": true,
+    "javascript.validate.enable": false,
+    "javascript.suggestionActions.enabled": false,
+    "go.goplsArgs": [
+        "-remote",
+        "unix;/tmp/gopls-daemon-socket"
+    ]
 }
