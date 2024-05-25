@@ -10,6 +10,8 @@ vim.opt.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
 
 -- vim.opt.scrolloff = 999
+--
+vim.g.airline_powerline_fonts = 1
 
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split"
@@ -26,8 +28,10 @@ vim.api.nvim_set_keymap("n", "<C-e>", ":NERDTreeToggle<CR>", { noremap = true })
 
 vim.g.NERDTreeDirArrowExpandable = "▸"
 vim.g.NERDTreeDirArrowCollapsible = "▾"
+vim.g.WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = " "
+vim.g.webdevicons_conceal_nerdtree_brackets = 1
 
-vim.g.NERDTreeShowLineNumbers = 1
+vim.g.NERDTreeShowLineNumbers = 0
 vim.g.NERDTreeAutoCenter = 1
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeWinSize = 31
