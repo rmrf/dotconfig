@@ -16,9 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		"rebelot/kanagawa.nvim",
+		"folke/tokyonight.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			vim.cmd.colorscheme("kanagawa-wave")
+			-- load the colorscheme here
+			vim.cmd([[colorscheme tokyonight-storm]])
 		end,
 	},
 	{
@@ -75,9 +78,9 @@ require("lazy").setup({
 	},
 	{
 		"preservim/nerdtree",
+		dependencies = { "ryanoasis/vim-devicons", "Xuyuanp/nerdtree-git-plugin" },
 		config = function() end,
 	},
-	{ "Xuyuanp/nerdtree-git-plugin", config = function() end },
 	{ "hrsh7th/nvim-cmp" },
 	{
 		"sbdchd/neoformat",
@@ -153,7 +156,7 @@ require("lazy").setup({
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-			require("lspconfig")["<YOUR_LSP_SERVER>"].setup({
+			require("lspconfig")["pyright"].setup({
 				capabilities = capabilities,
 			})
 		end,
@@ -163,6 +166,13 @@ require("lazy").setup({
 		config = function()
 			require("autoclose").setup()
 		end,
+	},
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{
+		"Wansmer/treesj",
+		keys = { { "<space>j", "<cmd>TSJToggle<cr>", desc = "Join Toggle" } },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = { use_default_keymaps = false, max_join_length = 150 },
 	},
 	{ "preservim/nerdcommenter" },
 })
