@@ -33,9 +33,7 @@ Home directory configurations(auto backup)
 - K # check func doc
 - % # for jump between parenthesis
 - ,F # format code in current window
-- code generation (with codeium on)
-    - `c-g` to accept, `c-x` to clear
-    - `c-]`, `m-]` to get next/previous suggestion
+- gd (definition), gD (declaration), gi(implementation), gr(references) 
 - floaterm related
     - `,gi` for trigger lazygit
     - `,ff` for trigger find files
