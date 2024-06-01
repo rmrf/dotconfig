@@ -23,22 +23,25 @@ Home directory configurations(auto backup)
 
 ```
 - <leader> is ,
-- <leader>cc, <leader>cs <leader>cu  # comment and uncomment https://github.com/preservim/nerdcommenter
+- ,cc ,cs ,cu  # comment and uncomment https://github.com/preservim/nerdcommenter
 - c-o for go back
-- gd, goto func Definition
-- gn,gp  # switch buffer
-- C-6, Buffers # Switch recent 2 buffer, List all the Buffers
-- C-l,C-h,C-n  #tab left, right, new
-- zR, zM  # Markdown fold and unfold
+- gn gp  # switch buffer
+- C-6 Buffers # Switch recent 2 buffer, List all the Buffers
+- C-l C-h C-n  #tab left, right, new
+- zR zM  # Markdown fold and unfold
 - K # check func doc, double hit to jump into floating box
 - % # for jump between parenthesis
 - ,F # format code in current window
 - gd (definition), gD (declaration), gi(implementation), gr(references) 
-- `,rn` (rename symbool),  `ca` (code action: under virsual mode, )
+- ,rn (rename symbol),  ca (code action: should under virsual mode)
 - floaterm related
-    - `,gi` for trigger lazygit
-    - `,ff` for trigger find files
-    - `,fn` for trigger file content grep
+    - ,ff for trigger find files
+    - ,fn for trigger file content grep
+- AutoRun related
+    - ,gi for trigger lazygit
+    - ,ap  Run current python file
+    - ,ag  Run golang code: go run *.go
+    - ,am  Run make
 ```
 
 ### NerdTree tips
