@@ -47,7 +47,13 @@ vim.api.nvim_set_keymap("n", "gn", ":bnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gp", ":bprev<CR>", { noremap = true })
 
 -- floaterm
-vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>FloatermNew --width=0.9 --height=0.9 lazygit<CR>", { noremap = true })
+--vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>FloatermNew --width=0.9 --height=0.9 lazygit<CR>", { noremap = true })
+
+-- AsyncRun
+vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>AsyncRun -mode=term -pos=TAB -close lazygit<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>ap", "<cmd>AsyncRun -mode=term -pos=TAB python3 $(VIM_FILEPATH)<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>ag", "<cmd>AsyncRun -mode=term -pos=TAB go run *.go<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>am", "<cmd>AsyncRun -mode=term -pos=TAB make<CR>", { noremap = true })
 
 -- for func definition
 -- Displays hover information about the symbol under the cursor in a floating
@@ -75,3 +81,5 @@ vim.api.nvim_set_keymap("v", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { n
 vim.g.neoformat_run_all_formatters = 1
 vim.g.neoformat_basic_format_trim = 1
 vim.g.neoformat_basic_format_align = 1
+
+vim.g.asyncrun_open = 10

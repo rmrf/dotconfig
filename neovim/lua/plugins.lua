@@ -175,4 +175,5 @@ require("lazy").setup({
 		opts = { use_default_keymaps = false, max_join_length = 150 },
 	},
 	{ "preservim/nerdcommenter" },
+	{ "skywind3000/asyncrun.vim" },
 })
