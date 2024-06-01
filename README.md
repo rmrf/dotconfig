@@ -30,10 +30,11 @@ Home directory configurations(auto backup)
 - C-6, Buffers # Switch recent 2 buffer, List all the Buffers
 - C-l,C-h,C-n  #tab left, right, new
 - zR, zM  # Markdown fold and unfold
-- K # check func doc
+- K # check func doc, double hit to jump into floating box
 - % # for jump between parenthesis
 - ,F # format code in current window
 - gd (definition), gD (declaration), gi(implementation), gr(references) 
+- `,rn` (rename symbool),  `ca` (code action: under virsual mode, )
 - floaterm related
     - `,gi` for trigger lazygit
     - `,ff` for trigger find files
