@@ -81,7 +81,6 @@ require("lazy").setup({
 		dependencies = { "ryanoasis/vim-devicons", "Xuyuanp/nerdtree-git-plugin" },
 		config = function() end,
 	},
-	{ "hrsh7th/nvim-cmp" },
 	{
 		"sbdchd/neoformat",
 		config = function() end,
@@ -126,7 +125,7 @@ require("lazy").setup({
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "vsnip" }, -- For vsnip users.
-					-- { name = 'luasnip' }, -- For luasnip users.
+					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
 				}, {
@@ -176,4 +175,25 @@ require("lazy").setup({
 	},
 	{ "preservim/nerdcommenter" },
 	{ "skywind3000/asyncrun.vim" },
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.files").setup({
+				mappings = {
+					close = "q",
+					go_in = "l",
+					go_in_plus = "<C-l>",
+					go_out = "h",
+					go_out_plus = "<C-h>",
+				},
+				-- Customization of explorer windows
+				windows = {
+					-- Maximum number of windows to show side by side
+					max_number = math.huge,
+					-- Whether to show preview of file/directory under cursor
+					preview = true,
+				},
+			})
+		end,
+	},
 })
