@@ -28,7 +28,19 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "python" },
+				ensure_installed = {
+					"c",
+					"lua",
+					"vim",
+					"vimdoc",
+					"query",
+					"go",
+					"python",
+					"xml",
+					"http",
+					"json",
+					"graphql",
+				},
 				auto_install = true,
 
 				highlight = {
@@ -166,7 +178,6 @@ require("lazy").setup({
 			require("autoclose").setup()
 		end,
 	},
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{
 		"Wansmer/treesj",
 		keys = { { "<space>j", "<cmd>TSJToggle<cr>", desc = "Join Toggle" } },
@@ -175,6 +186,23 @@ require("lazy").setup({
 	},
 	{ "preservim/nerdcommenter" },
 	{ "skywind3000/asyncrun.vim" },
+	{
+		"vhyrro/luarocks.nvim",
+		priority = 1000,
+		config = true,
+		opts = {
+			rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
+		},
+	},
+	{
+		"rest-nvim/rest.nvim",
+		ft = "http",
+		--lazy = false,
+		dependencies = { "luarocks.nvim" },
+		config = function()
+			require("rest-nvim").setup()
+		end,
+	},
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{
 		"echasnovski/mini.nvim",
@@ -195,6 +223,19 @@ require("lazy").setup({
 					preview = true,
 				},
 			})
+		end,
+	},
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").get_icons()
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
 		end,
 	},
 })
