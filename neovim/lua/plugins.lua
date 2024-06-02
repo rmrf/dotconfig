@@ -175,6 +175,7 @@ require("lazy").setup({
 	},
 	{ "preservim/nerdcommenter" },
 	{ "skywind3000/asyncrun.vim" },
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{
 		"echasnovski/mini.nvim",
 		config = function()

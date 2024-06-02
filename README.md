@@ -37,6 +37,8 @@ Home directory configurations(auto backup)
 - floaterm related
     - ,ff for trigger find files
     - ,fn for trigger file content grep
+- toggleterm 
+    - C-t to open a right side term
 - AutoRun related
     - ,gi for trigger lazygit
     - ,ap  Run current python file

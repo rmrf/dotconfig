@@ -51,9 +51,24 @@ vim.api.nvim_set_keymap("n", "gp", ":bprev<CR>", { noremap = true })
 
 -- AsyncRun
 vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>AsyncRun -mode=term -pos=TAB -close lazygit<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>ap", "<cmd>AsyncRun -mode=term -pos=TAB python3 $(VIM_FILEPATH)<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>ag", "<cmd>AsyncRun -mode=term -pos=TAB go run *.go<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>am", "<cmd>AsyncRun -mode=term -pos=TAB make<CR>", { noremap = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>ap",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=80 python3 $(VIM_FILEPATH)<CR>",
+	{ noremap = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>ag",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=80 go run *.go<CR>",
+	{ noremap = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>am",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=80 make<CR>",
+	{ noremap = true }
+)
 
 -- for func definition
 -- Displays hover information about the symbol under the cursor in a floating
@@ -78,8 +93,9 @@ vim.api.nvim_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", 
 -- Selects a code action available at the current cursor position.
 vim.api.nvim_set_keymap("v", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
-
 vim.api.nvim_set_keymap("n", "<C-m>", "<cmd>lua MiniFiles.open()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=100 direction=vertical name=local<CR>", { noremap = true })
+
 vim.g.neoformat_run_all_formatters = 1
 vim.g.neoformat_basic_format_trim = 1
 vim.g.neoformat_basic_format_align = 1
