@@ -75,6 +75,12 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 
+vim.g.neoformat_run_all_formatters = 1
+vim.g.neoformat_basic_format_trim = 1
+vim.g.neoformat_basic_format_align = 1
+
+vim.g.asyncrun_open = 10
+
 -- for func definition
 -- Displays hover information about the symbol under the cursor in a floating
 -- window. Calling the function twice will jump into the floating window.
@@ -104,9 +110,3 @@ vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=120 direction=vertic
 -- Rest nvim
 vim.api.nvim_set_keymap("n", "<Leader>rr", "<cmd>Rest run<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>rl", "<cmd>Rest run last<CR>", { noremap = true })
-
-vim.g.neoformat_run_all_formatters = 1
-vim.g.neoformat_basic_format_trim = 1
-vim.g.neoformat_basic_format_align = 1
-
-vim.g.asyncrun_open = 10
