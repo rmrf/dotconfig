@@ -2,6 +2,21 @@
 
 Home directory configurations(auto backup)
 
+## Alacritty
+
+```
+cp -r alacritty ~/.config/
+
+```
+
+## Zellij
+
+```
+cp -r zellij ~/.config/
+
+```
+
+
 ## Tmux
 
 - read the readme markdown file under tmux folder
