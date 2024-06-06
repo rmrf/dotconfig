@@ -4,12 +4,16 @@ Home directory configurations(auto backup)
 
 ## Alacritty
 
+- https://alacritty.org/config-alacritty.html
+
 ```
 cp -r alacritty ~/.config/
 
 ```
 
 ## Zellij
+
+- https://zellij.dev/documentation/configuration
 
 ```
 cp -r zellij ~/.config/
