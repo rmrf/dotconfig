@@ -15,13 +15,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {
+        "rakr/vim-one",
+	    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			-- load the colorscheme here
-			vim.cmd([[colorscheme tokyonight-storm]])
+			--vim.cmd([[colorscheme tokyonight-storm]])
+			vim.cmd([[colorscheme default]])
 		end,
 	},
 	{
@@ -207,22 +212,6 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.nvim",
 		config = function()
-			require("mini.files").setup({
-				mappings = {
-					close = "q",
-					go_in = "l",
-					go_in_plus = "<C-l>",
-					go_out = "h",
-					go_out_plus = "<C-h>",
-				},
-				-- Customization of explorer windows
-				windows = {
-					-- Maximum number of windows to show side by side
-					max_number = math.huge,
-					-- Whether to show preview of file/directory under cursor
-					preview = true,
-				},
-			})
 		end,
 	},
     {
