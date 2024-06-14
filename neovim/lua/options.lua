@@ -45,6 +45,7 @@ vim.api.nvim_set_keymap("n", "<C-h>", ":tabprev<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "gn", ":bnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gp", ":bprev<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gk", ":bdelete<CR>", { noremap = true })
 
 -- floaterm
 --vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>FloatermNew --width=0.9 --height=0.9 lazygit<CR>", { noremap = true })
