@@ -4,7 +4,7 @@
 tmux config file location is ~/.tumx.conf, you can make a soft link with ln.
 such as:
     
-    ln -s ~/vimrc/tmux/tmux.conf ~/.tmux.conf
+    ln -s ~/dotconfig/tmux/tmux.conf ~/.tmux.conf
 
 ## Shortcut Reference Now a Ctrl-b or (`) options reference:
 
