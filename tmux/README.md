@@ -6,6 +6,10 @@ such as:
     
     ln -s ~/dotconfig/tmux/tmux.conf ~/.tmux.conf
 
+Put this line inside your .bashrc or similar
+
+    alias tmux="TERM=screen-256color-bce tmux"
+
 ## Shortcut Reference Now a Ctrl-b or (`) options reference:
 
 #### Basics
