@@ -61,3 +61,8 @@ Put this line inside your .bashrc or similar
 	C-b/` ]
 	# see all paster buffers
 	C-b/` #
+
+#### Resurrent
+
+    C-b/` Ctrl-s - Save
+    C-b/` Ctrl-r - Restore
