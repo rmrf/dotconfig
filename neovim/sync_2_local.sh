@@ -22,7 +22,7 @@ function syncit() {
     fi
 }
 
-syncit ~/.config/nvim/init.lua ./init.lua
+syncit ./init.lua ~/.config/nvim/init.lua
 
-syncit ~/.config/nvim/lua/options.lua ./lua/options.lua
-syncit ~/.config/nvim/lua/plugins.lua ./lua/plugins.lua
+syncit ./lua/options.lua ~/.config/nvim/lua/options.lua
+syncit ./lua/plugins.lua ~/.config/nvim/lua/plugins.lua
