@@ -12,8 +12,8 @@ function syncit() {
             echo "$file1 和 $file2 文件相同"
             return 0
         else
-            echo "文件不同，备份后同步"
-            cp $file2 $file2_$now
+            echo "文件不同，备份后同步 $file2"
+            cp $file2 ${file2}_${now}
             cp $file1 $file2
         fi
     else
