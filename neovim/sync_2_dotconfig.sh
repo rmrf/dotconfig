@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-now=$(date +%Y-%m-%d_%H:%M:%S)
 
 function syncit() {
     file1=$1
@@ -13,7 +12,6 @@ function syncit() {
             return 0
         else
             echo "文件不同，备份后同步 $file2"
-            cp $file2 ${file2}_${now}
             cp $file1 $file2
         fi
     else

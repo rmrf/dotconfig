@@ -111,3 +111,6 @@ vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=120 direction=vertic
 -- Rest nvim
 vim.api.nvim_set_keymap("n", "<Leader>rr", "<cmd>Rest run<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>rl", "<cmd>Rest run last<CR>", { noremap = true })
+
+-- 
+vim.api.nvim_set_keymap("n", "<Leader>mt", "<cmd>Neominimap toggle<CR>", { noremap = true })
