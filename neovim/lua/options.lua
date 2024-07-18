@@ -105,12 +105,12 @@ vim.api.nvim_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", 
 -- Selects a code action available at the current cursor position.
 vim.api.nvim_set_keymap("v", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<Leader>mi", "<cmd>lua MiniFiles.open()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=120 direction=vertical name=local<CR>", { noremap = true })
 
 -- Rest nvim
 vim.api.nvim_set_keymap("n", "<Leader>rr", "<cmd>Rest run<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>rl", "<cmd>Rest run last<CR>", { noremap = true })
 
--- 
-vim.api.nvim_set_keymap("n", "<Leader>mt", "<cmd>Neominimap toggle<CR>", { noremap = true })
+
+-- Markdown
+vim.api.nvim_set_keymap("n", "<Leader>md", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true })
