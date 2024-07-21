@@ -21,6 +21,9 @@ vim.opt.termguicolors = true
 
 vim.g.mapleader = ","
 
+-- Insert Date
+vim.api.nvim_set_keymap("n", "<Leader>D", ":put =strftime('## %Y-%m-%d 星期%a')<CR>", { noremap = true })
+
 -- Format
 vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>Neoformat<CR>", { noremap = true })
 
