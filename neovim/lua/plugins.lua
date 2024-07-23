@@ -268,28 +268,32 @@ require("lazy").setup({
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
-		    require("bufferline").setup()
+			require("bufferline").setup()
 		end,
 	},
-    {
-        "Al0den/notion.nvim",
-        lazy = false, --Should work when lazy loaded, not tested
-        dependencies = {
-          "nvim-telescope/telescope.nvim",
-          "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require"notion".setup()
-        end,
-    },
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = "cd app && yarn install",
-      init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-      end,
-      ft = { "markdown" },
-    },
-
+	{
+		"Al0den/notion.nvim",
+		lazy = false, --Should work when lazy loaded, not tested
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("notion").setup()
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{
+		"plasticboy/vim-markdown",
+		branch = "master",
+		require = { "godlygeek/tabular" },
+	},
 })
