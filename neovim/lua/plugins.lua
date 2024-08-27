@@ -268,32 +268,50 @@ require("lazy").setup({
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
-			require("bufferline").setup()
+		    require("bufferline").setup()
 		end,
 	},
-	{
-		"Al0den/notion.nvim",
-		lazy = false, --Should work when lazy loaded, not tested
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("notion").setup()
-		end,
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	},
-	{
-		"plasticboy/vim-markdown",
-		branch = "master",
-		require = { "godlygeek/tabular" },
-	},
+    {
+        "Al0den/notion.nvim",
+        lazy = false, --Should work when lazy loaded, not tested
+        dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require"notion".setup()
+        end,
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
+    },
+    {
+      "yetone/avante.nvim",
+      event = "VeryLazy",
+      build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
+      opts = {
+        -- add any opts here
+      },
+      dependencies = {
+        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        --- The below is optional, make sure to setup it properly if you have lazy=true
+        {
+          'MeanderingProgrammer/render-markdown.nvim',
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+    }
+
 })
