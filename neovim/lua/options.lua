@@ -110,10 +110,6 @@ vim.api.nvim_set_keymap("v", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { n
 
 vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=120 direction=vertical name=local<CR>", { noremap = true })
 
--- Rest nvim
-vim.api.nvim_set_keymap("n", "<Leader>rr", "<cmd>Rest run<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>rl", "<cmd>Rest run last<CR>", { noremap = true })
-
 
 -- Markdown
 vim.api.nvim_set_keymap("n", "<Leader>md", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true })

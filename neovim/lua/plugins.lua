@@ -199,15 +199,6 @@ require("lazy").setup({
 			rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
 		},
 	},
-	{
-		"rest-nvim/rest.nvim",
-		ft = "http",
-		--lazy = false,
-		dependencies = { "luarocks.nvim" },
-		config = function()
-			require("rest-nvim").setup()
-		end,
-	},
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{
 		"echasnovski/mini.nvim",
