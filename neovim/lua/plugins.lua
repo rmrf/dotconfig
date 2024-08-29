@@ -287,7 +287,16 @@ require("lazy").setup({
       event = "VeryLazy",
       build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
       opts = {
-        -- add any opts here
+            provider="azure",
+            azure = {
+              endpoint = "https://dogs-jpeast-openai-001.openai.azure.com/", 
+              deployment = "gpt-4o", -- Azure deployment name (e.g., "gpt-4o", "my-gpt-4o-deployment")
+              api_version = "2024-06-01",
+              timeout = 30000, -- Timeout in milliseconds
+              temperature = 0,
+              max_tokens = 4096,
+              ["local"] = false,
+            },
       },
       dependencies = {
         "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
