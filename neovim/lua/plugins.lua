@@ -74,7 +74,21 @@ require("lazy").setup({
 			local lspconfig = require("lspconfig")
 			lspconfig.clangd.setup({})
 			lspconfig.pyright.setup({})
-			lspconfig.gopls.setup({})
+			lspconfig.gopls.setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+              cmd = {"gopls"},
+              filetypes = { "go", "gomod", "gowork", "gotmpl" },
+              settings = {
+                gopls = {
+                  analyses = {
+                    unusedparams = true,
+                  },
+                  staticcheck = true,
+                  gofumpt = true,
+                },
+              },
+            })
 			lspconfig.java_language_server.setup({})
 		end,
 	},
