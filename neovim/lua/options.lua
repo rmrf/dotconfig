@@ -113,6 +113,15 @@ vim.api.nvim_set_keymap("v", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { n
 
 vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm size=120 direction=vertical name=local<CR>", { noremap = true })
 
+-- dap
+
+vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+vim.api.nvim_set_keymap("n", "<F5>", "<cmd>DapContinue<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F9>", "<cmd>DapStepOver<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F11>", "<cmd>DapStepInto<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F12>", "<cmd>DapStepOut<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>db", "<cmd>DapToggleBreakpoint<CR>", { noremap = true })
 
 -- Markdown
 vim.api.nvim_set_keymap("n", "<Leader>md", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true })

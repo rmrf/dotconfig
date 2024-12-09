@@ -286,35 +286,81 @@ require("lazy").setup({
       ft = { "markdown" },
     },
     {
-      "yetone/avante.nvim",
-      event = "VeryLazy",
-      build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
-      opts = {
-            provider="azure",
-            azure = {
-              endpoint = "https://dogs-jpeast-openai-001.openai.azure.com/", 
-              deployment = "gpt-4o", -- Azure deployment name (e.g., "gpt-4o", "my-gpt-4o-deployment")
-              api_version = "2024-06-01",
-              timeout = 30000, -- Timeout in milliseconds
-              temperature = 0,
-              max_tokens = 4096,
-              ["local"] = false,
-            },
-      },
+        "atiladefreitas/dooing",
+        config = function()
+            require("dooing").setup({
+                -- Window settings
+                window = {
+                    width = 85,         -- Width of the floating window
+                    height = 20,        -- Height of the floating window
+                    border = 'rounded', -- Border style
+                    padding = {
+                        top = 1,
+                        bottom = 1,
+                        left = 2,
+                        right = 2,
+                    },
+                },
+
+            })
+        end,
+    },
+    {
+      "mfussenegger/nvim-dap",
+      recommended = true,
+      desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
+
       dependencies = {
-        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-        "stevearc/dressing.nvim",
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        --- The below is optional, make sure to setup it properly if you have lazy=true
+        "rcarriga/nvim-dap-ui",
+        -- virtual text for the debugger
         {
-          'MeanderingProgrammer/render-markdown.nvim',
-          opts = {
-            file_types = { "markdown", "Avante" },
-          },
-          ft = { "markdown", "Avante" },
+          "theHamsta/nvim-dap-virtual-text",
+          opts = {},
         },
       },
+
+      -- stylua: ignore
+      keys = {
+        { "<leader>d", "", desc = "+debug", mode = {"n", "v"} },
+        { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+        { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+        { "<leader>dc", function() require("dap").continue() end, desc = "Run/Continue" },
+        { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
+        { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+        { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
+        { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+        { "<leader>dj", function() require("dap").down() end, desc = "Down" },
+        { "<leader>dk", function() require("dap").up() end, desc = "Up" },
+        { "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
+        { "<leader>do", function() require("dap").step_out() end, desc = "Step Out" },
+        { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
+        { "<leader>dp", function() require("dap").pause() end, desc = "Pause" },
+        { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
+        { "<leader>ds", function() require("dap").session() end, desc = "Session" },
+        { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
+        { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+      },
+
+      config = function()
+
+        vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+
+        -- setup dap config by VsCode launch.json file
+        local vscode = require("dap.ext.vscode")
+        local json = require("plenary.json")
+        vscode.json_decode = function(str)
+          return vim.json.decode(json.json_strip_comments(str))
+        end
+      end,
+    },
+    {
+        "leoluz/nvim-dap-go",
+		dependencies = "mfussenegger/nvim-dap",
+        config = function()
+            require("dap-go").setup({
+
+            })
+        end,
     }
 
 })
