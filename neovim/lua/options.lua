@@ -66,13 +66,19 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<Leader>ap",
-	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 python3 $(VIM_FILEPATH)<CR>",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 time python3 $(VIM_FILEPATH)<CR>",
 	{ noremap = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
 	"<Leader>ag",
-	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 go run *.go<CR>",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 time go run *.go<CR>",
+	{ noremap = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>agt",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 time go test -v *.go --run $(VIM_CWORD)<CR>",
 	{ noremap = true }
 )
 vim.api.nvim_set_keymap(

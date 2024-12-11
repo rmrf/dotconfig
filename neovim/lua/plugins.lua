@@ -119,6 +119,7 @@ require("lazy").setup({
 	-- nvim-cmp
 	{
 		"hrsh7th/nvim-cmp",
+
 		dependencies = {
 			"hrsh7th/cmp-emoji",
 			"neovim/nvim-lspconfig",
@@ -126,22 +127,22 @@ require("lazy").setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+            "saadparwaiz1/cmp_luasnip", 
 		},
+
 		config = function()
 			-- Set up nvim-cmp.
 			local cmp = require("cmp")
 
+
 			cmp.setup({
 				snippet = {
-					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-						-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-						-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+                        vim.snippet.expand(arg.body)
+                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
+
 				window = {
 					-- completion = cmp.config.window.bordered(),
 					-- documentation = cmp.config.window.bordered(),
@@ -155,8 +156,8 @@ require("lazy").setup({
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "vsnip" }, -- For vsnip users.
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "path" },
+                    { name = 'luasnip' }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
 				}, {
@@ -189,6 +190,7 @@ require("lazy").setup({
 			require("lspconfig")["pyright"].setup({
 				capabilities = capabilities,
 			})
+
 		end,
 	},
 	{
@@ -385,6 +387,23 @@ require("lazy").setup({
           dapui.close({})
         end
       end,
+    },
+    {
+      "L3MON4D3/LuaSnip",
+      lazy = true,
+      dependencies = {
+        {
+          "rafamadriz/friendly-snippets",
+          config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/my-snippets" } }) -- Load snippets from my-snippets folder
+          end,
+        },
+      },
+      opts = {
+        history = true,
+        delete_check_events = "TextChanged",
+      },
     }
 
 })

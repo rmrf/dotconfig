@@ -1,0 +1,13 @@
+{
+    "if err != nil": {
+        "prefix": "ife",
+        "body": "if err != nil {\n\treturn ${1:nil}, ${2:err}\n}",
+        "description": "Snippet for if err != nil"
+    },
+    "readfile": {
+        "prefix": "readf",
+        "body": "func readFile(filePath string) ([]string, error) {\n var lines []string\n file, err := os.Open(filePath)\n if err != nil {\n return nil, err\n }\n defer file.Close()\n scanner := bufio.NewScanner(file)\n for scanner.Scan() {\n lines = append(lines, scanner.Text())\n }\n if err := scanner.Err(); err != nil {\n return nil, err\n }\n return lines, nil\n }",
+        "description": "readfile"
+    }
+
+}

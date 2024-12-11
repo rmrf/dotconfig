@@ -26,3 +26,4 @@ syncit ./init.lua ~/.config/nvim/init.lua
 
 syncit ./lua/options.lua ~/.config/nvim/lua/options.lua
 syncit ./lua/plugins.lua ~/.config/nvim/lua/plugins.lua
+rsync -av ./my-snippets/ ~/.config/nvim/my-snippets/
