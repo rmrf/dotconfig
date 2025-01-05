@@ -1,0 +1,8 @@
+{
+    "readfile": {
+        "prefix": "readf",
+        "body":"import 'dart:io'; \n\nFuture<List<String>> readFileAsStringArray(String filePath) async { \n try { \n final file = File(filePath);\n final lines = await file.readAsLines();\n return lines;\n } catch (e) {\n print('Error read file: $e'); \n return [];\n }\n }\n",
+        "description": "readfile"
+    }
+
+}

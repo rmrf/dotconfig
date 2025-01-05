@@ -44,6 +44,7 @@ require("lazy").setup({
 					"xml",
 					"http",
 					"json",
+					"dart",
 					"graphql",
 				},
 				auto_install = true,
@@ -404,6 +405,15 @@ require("lazy").setup({
         history = true,
         delete_check_events = "TextChanged",
       },
+    },
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
     }
 
 })

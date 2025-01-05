@@ -71,6 +71,12 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
 	"n",
+	"<Leader>ad",
+	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 time dart $(VIM_FILEPATH)<CR>",
+	{ noremap = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
 	"<Leader>ag",
 	"<cmd>AsyncRun -mode=term -pos=right -rows=20 -cols=100 time go run *.go<CR>",
 	{ noremap = true }
@@ -133,7 +139,7 @@ vim.api.nvim_set_keymap("n", "<Leader>db", "<cmd>DapToggleBreakpoint<CR>", { nor
 vim.api.nvim_set_keymap("n", "<Leader>md", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
+  pattern = {"*.go","*.dart"},
   callback = function()
     local params = vim.lsp.util.make_range_params()
     params.context = {only = {"source.organizeImports"}}
