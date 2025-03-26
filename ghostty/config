@@ -1,0 +1,13 @@
+
+
+keybind = performable:alt+c=copy_to_clipboard
+keybind = performable:alt+v=paste_from_clipboard
+keybind = performable:alt+t=new_tab
+
+
+cursor-style = block
+cursor-style-blink =  true
+shell-integration-features = no-cursor
+
+theme = synthwave
+
