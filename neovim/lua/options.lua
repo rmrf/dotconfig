@@ -1,3 +1,6 @@
+
+vim.g.python3_host_prog = '~/miniforge3/bin/python3'
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.splitbelow = true

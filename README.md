@@ -23,7 +23,9 @@ Home directory configurations(auto backup)
 ### NVim Coding tips
 
 - When setup new env, just scp the `~/.local/share/nvim` folder to new box 
+- `:checkhealth` before using nvim
 - xxx.hurl, use `:HurlSetEnvFile` to indicate the env file
+    - ref for more config: https://hurl.dev/docs/entry.html
 
 
 ## Ghostty

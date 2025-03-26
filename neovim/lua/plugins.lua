@@ -425,7 +425,7 @@ require("lazy").setup({
       opts = {
         -- add any opts here
         -- for example
-        provider = "openai",
+        provider = "gemini",
         openai = {
           endpoint = "https://api.deepseek.com/v1",
           api_key_name = "DEEPSEEK_API_KEY",
@@ -435,6 +435,9 @@ require("lazy").setup({
           max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
           --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
         },
+        gemini = {
+          api_key_name = "GEMINI_API_KEY",
+       },
       },
       -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
       build = "make",
