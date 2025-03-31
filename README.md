@@ -22,7 +22,9 @@ Home directory configurations(auto backup)
 
 ### NVim Coding tips
 
-- When setup new env, just scp the `~/.local/share/nvim` folder to new box 
+- When setup new env: 
+    - copy `~/.local/share/nvim` folder to new box 
+    - copy `~/.local/share/fonts` folder and run `fc-cache -f`
 - `cargo install stylua` and place `~/.cargo/bin` inside your `$PATH`
 - `:checkhealth` before using nvim
 - xxx.hurl, use `:HurlSetEnvFile` to indicate the env file

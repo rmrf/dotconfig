@@ -141,6 +141,10 @@ vim.api.nvim_set_keymap("n", "<Leader>db", "<cmd>DapToggleBreakpoint<CR>", { nor
 -- Markdown
 vim.api.nvim_set_keymap("n", "<Leader>md", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true })
 
+-- Weather
+vim.api.nvim_set_keymap("n", "<Leader>W", "<cmd>Weather<CR>", { noremap = true, silent = true })
+
+-- 代码保存之前，自动 import 并格式化代码
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {"*.go","*.dart"},
   callback = function()
@@ -163,3 +167,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format({async = false})
   end
 })
+
+vim.b.disable_lsp = true  -- 标记当前缓冲区禁用 LSP
+vim.lsp.stop_client(vim.lsp.get_active_clients({ name = "jdtls" }))

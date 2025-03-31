@@ -25,7 +25,7 @@ require("lazy").setup({
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			-- load the colorscheme here
-			-- vim.cmd([[colorscheme tokyonight-storm]])
+			vim.cmd([[colorscheme tokyonight-storm]])
 			--vim.cmd([[colorscheme default]])
 		end,
 	},
@@ -76,21 +76,20 @@ require("lazy").setup({
 			lspconfig.clangd.setup({})
 			lspconfig.pyright.setup({})
 			lspconfig.gopls.setup({
-              on_attach = on_attach,
-              capabilities = capabilities,
-              cmd = {"gopls"},
-              filetypes = { "go", "gomod", "gowork", "gotmpl" },
-              settings = {
-                gopls = {
-                  analyses = {
-                    unusedparams = true,
-                  },
-                  staticcheck = true,
-                  gofumpt = true,
-                },
-              },
-            })
-			lspconfig.java_language_server.setup({})
+				on_attach = on_attach,
+				capabilities = capabilities,
+				cmd = { "gopls" },
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+						gofumpt = true,
+					},
+				},
+			})
 		end,
 	},
 	{
@@ -128,19 +127,18 @@ require("lazy").setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-            "saadparwaiz1/cmp_luasnip", 
+			"saadparwaiz1/cmp_luasnip",
 		},
 
 		config = function()
 			-- Set up nvim-cmp.
 			local cmp = require("cmp")
 
-
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-                        vim.snippet.expand(arg.body)
-                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+						vim.snippet.expand(arg.body)
+						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
 
@@ -158,7 +156,7 @@ require("lazy").setup({
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "path" },
-                    { name = 'luasnip' }, -- For luasnip users.
+					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
 				}, {
@@ -191,7 +189,6 @@ require("lazy").setup({
 			require("lspconfig")["pyright"].setup({
 				capabilities = capabilities,
 			})
-
 		end,
 	},
 	{
@@ -237,8 +234,8 @@ require("lazy").setup({
 	{ "nvim-neotest/nvim-nio" },
 	{
 		"jellydn/hurl.nvim",
-        -- 如果没找到，那么使用 :HurlSetEnvFile 设置文件即可
-        env_file = { 'hurl.env', },
+		-- 如果没找到，那么使用 :HurlSetEnvFile 设置文件即可
+		env_file = { "hurl.env", "vars.env" },
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
@@ -253,7 +250,7 @@ require("lazy").setup({
 			-- Show response in popup or split
 			mode = "split",
 			-- Default formatter
-            -- find_env_files_in_folders = utils.find_env_files_in_folders,
+			--find_env_files_in_folders = require('hurl.utils').find_env_files_in_folders,
 			formatters = {
 				json = { "jq" }, -- Make sure you have install jq in your system, e.g: brew install jq
 				html = {
@@ -279,51 +276,50 @@ require("lazy").setup({
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
-		    require("bufferline").setup()
+			require("bufferline").setup()
 		end,
 	},
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = "cd app && yarn install",
-      init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-      end,
-      ft = { "markdown" },
-    },
-    {
-        "atiladefreitas/dooing",
-        config = function()
-            require("dooing").setup({
-                -- Window settings
-                window = {
-                    width = 85,         -- Width of the floating window
-                    height = 20,        -- Height of the floating window
-                    border = 'rounded', -- Border style
-                    padding = {
-                        top = 1,
-                        bottom = 1,
-                        left = 2,
-                        right = 2,
-                    },
-                },
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{
+		"atiladefreitas/dooing",
+		config = function()
+			require("dooing").setup({
+				-- Window settings
+				window = {
+					width = 85, -- Width of the floating window
+					height = 20, -- Height of the floating window
+					border = "rounded", -- Border style
+					padding = {
+						top = 1,
+						bottom = 1,
+						left = 2,
+						right = 2,
+					},
+				},
+			})
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap",
+		recommended = true,
+		desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
-            })
-        end,
-    },
-    {
-      "mfussenegger/nvim-dap",
-      recommended = true,
-      desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
-
-      dependencies = {
-        "rcarriga/nvim-dap-ui",
-        -- virtual text for the debugger
-        {
-          "theHamsta/nvim-dap-virtual-text",
-          opts = {},
-        },
-      },
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			-- virtual text for the debugger
+			{
+				"theHamsta/nvim-dap-virtual-text",
+				opts = {},
+			},
+		},
 
       -- stylua: ignore
       keys = {
@@ -347,139 +343,195 @@ require("lazy").setup({
         { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
       },
 
-      config = function()
+		config = function()
+			vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-        vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
-
-        -- setup dap config by VsCode launch.json file
-        local vscode = require("dap.ext.vscode")
-        local json = require("plenary.json")
-        vscode.json_decode = function(str)
-          return vim.json.decode(json.json_strip_comments(str))
-        end
-      end,
-    },
-    {
-        "leoluz/nvim-dap-go",
+			-- setup dap config by VsCode launch.json file
+			local vscode = require("dap.ext.vscode")
+			local json = require("plenary.json")
+			vscode.json_decode = function(str)
+				return vim.json.decode(json.json_strip_comments(str))
+			end
+		end,
+	},
+	{
+		"leoluz/nvim-dap-go",
 		dependencies = "mfussenegger/nvim-dap",
-        config = function()
-            require("dap-go").setup({
-
-            })
-        end,
-    },
-    {
-      "rcarriga/nvim-dap-ui",
-      dependencies = { "nvim-neotest/nvim-nio" },
+		config = function()
+			require("dap-go").setup({})
+		end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "nvim-neotest/nvim-nio" },
       -- stylua: ignore
       keys = {
         { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
         { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
       },
-      opts = {},
-      config = function(_, opts)
-        local dap = require("dap")
-        local dapui = require("dapui")
-        dapui.setup(opts)
-        dap.listeners.after.event_initialized["dapui_config"] = function()
-          dapui.open({})
-        end
-        dap.listeners.before.event_terminated["dapui_config"] = function()
-          dapui.close({})
-        end
-        dap.listeners.before.event_exited["dapui_config"] = function()
-          dapui.close({})
-        end
-      end,
-    },
-    {
-      "L3MON4D3/LuaSnip",
-      lazy = true,
-      dependencies = {
-        {
-          "rafamadriz/friendly-snippets",
-          config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/my-snippets" } }) -- Load snippets from my-snippets folder
-          end,
-        },
-      },
-      opts = {
-        history = true,
-        delete_check_events = "TextChanged",
-      },
-    },
-    {
-        'nvim-flutter/flutter-tools.nvim',
-        lazy = false,
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'stevearc/dressing.nvim', -- optional for vim.ui.select
-        },
-        config = true,
-    },
-    {
-      "yetone/avante.nvim",
-      event = "VeryLazy",
-      version = false, -- Never set this value to "*"! Never!
-      opts = {
-        -- add any opts here
-        -- for example
-        provider = "gemini",
-        openai = {
-          endpoint = "https://api.deepseek.com/v1",
-          api_key_name = "DEEPSEEK_API_KEY",
-          model = "deepseek-chat", -- your desired model (or use gpt-4o, etc.)
-          timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-          temperature = 0,
-          max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-          --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-        },
-        gemini = {
-          api_key_name = "GEMINI_API_KEY",
-       },
-      },
-      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-      build = "make",
-      -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "stevearc/dressing.nvim",
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        --- The below dependencies are optional,
-        "echasnovski/mini.pick", -- for file_selector provider mini.pick
-        "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-        "ibhagwan/fzf-lua", -- for file_selector provider fzf
-        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-        "zbirenbaum/copilot.lua", -- for providers='copilot'
-        {
-          -- support for image pasting
-          "HakonHarnes/img-clip.nvim",
-          event = "VeryLazy",
-          opts = {
-            -- recommended settings
-            default = {
-              embed_image_as_base64 = false,
-              prompt_for_file_name = false,
-              drag_and_drop = {
-                insert_mode = true,
-              },
-              -- required for Windows users
-              use_absolute_path = true,
-            },
-          },
-        },
-        {
-          -- Make sure to set this up properly if you have lazy=true
-          'MeanderingProgrammer/render-markdown.nvim',
-          opts = {
-            file_types = { "markdown", "Avante" },
-          },
-          ft = { "markdown", "Avante" },
-        },
-      },
-    }
-
+		opts = {},
+		config = function(_, opts)
+			local dap = require("dap")
+			local dapui = require("dapui")
+			dapui.setup(opts)
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open({})
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close({})
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close({})
+			end
+		end,
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		lazy = true,
+		dependencies = {
+			{
+				"rafamadriz/friendly-snippets",
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+					require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/my-snippets" } }) -- Load snippets from my-snippets folder
+				end,
+			},
+		},
+		opts = {
+			history = true,
+			delete_check_events = "TextChanged",
+		},
+	},
+	{
+		"nvim-flutter/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+		config = true,
+	},
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		version = false, -- Never set this value to "*"! Never!
+		opts = {
+			provider = "openai",
+			openai = {
+				endpoint = "https://api.deepseek.com/v1",
+				api_key_name = "DEEPSEEK_API_KEY",
+				model = "deepseek-chat", -- your desired model (or use gpt-4o, etc.)
+				timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+				temperature = 0,
+				max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+				--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+			},
+			gemini = {
+				api_key_name = "GEMINI_API_KEY",
+				proxy = "http://127.0.0.1:3129",
+			},
+			copilot = {
+				proxy = "http://127.0.0.1:3129",
+			},
+		},
+		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+		build = "make",
+		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"echasnovski/mini.pick", -- for file_selector provider mini.pick
+			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+			"ibhagwan/fzf-lua", -- for file_selector provider fzf
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- required for Windows users
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				-- Make sure to set this up properly if you have lazy=true
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"lazymaniac/wttr.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			location = "Shanghai",
+			format = 1,
+			custom_format = "%C+%cP:%p+T:%t+F:%f+%w+%m+%P+UV:%u+Hum:%h",
+		},
+		keys = {
+			{
+				"<leader>WW",
+				function()
+					require("wttr").get_forecast() -- show forecast for my location
+				end,
+				desc = "Weather Forecast",
+			},
+		},
+	},
+	{
+		-- "atiladefreitas/lazyclip",
+		-- "rmrf/lazyclip",
+		dir = "~/Github/rmrf/lazyclip",
+		config = function()
+			require("lazyclip").setup({
+				-- your custom config here (optional)
+			})
+		end,
+		keys = {
+			{ "Cw", desc = "Open Clipboard Manager" },
+			{
+				"<leader>Cm",
+				function()
+					require("lazyclip.ui").copy_last_message()
+				end,
+				desc = "Copy last 10 message",
+			},
+		},
+		-- Optional: Load plugin when yanking text
+		event = { "TextYankPost" },
+	},
+	{
+		dir = "~/Github/rmrf/weather.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- only pick the first 3 cities
+		opts = { cities = { "Shanghai", "SanJose", "Beijing" } },
+	},
 })
