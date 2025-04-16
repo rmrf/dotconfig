@@ -224,6 +224,7 @@ require("lazy").setup({
 			require("nvim-web-devicons").get_icons()
 		end,
 	},
+	{ "nvim-neotest/nvim-nio" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -231,11 +232,8 @@ require("lazy").setup({
 			require("lualine").setup()
 		end,
 	},
-	{ "nvim-neotest/nvim-nio" },
 	{
 		"jellydn/hurl.nvim",
-		-- 如果没找到，那么使用 :HurlSetEnvFile 设置文件即可
-		env_file = { "hurl.env", "vars.env" },
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
@@ -244,9 +242,29 @@ require("lazy").setup({
 		ft = "hurl",
 		opts = {
 			-- Show debugging info
-			debug = false,
+			debug = true,
 			-- Show notification on run
 			show_notification = false,
+			-- 如果没找到，那么使用 :HurlSetEnvFile 设置文件即可
+			env_file = { "hurl.env", "vars.env" },
+			fixture_vars = {
+				{
+					name = "random_int_number",
+					callback = function()
+						return math.random(1, 1000)
+					end,
+				},
+				{
+					name = "generate_timestamp",
+					callback = function()
+						local timestamp = os.time()
+						local file = io.open("/tmp/timestamp.txt", "w")
+						file:write(timestamp)
+						file:close()
+						return tostring(timestamp)
+					end,
+				},
+			},
 			-- Show response in popup or split
 			mode = "split",
 			-- Default formatter
@@ -260,6 +278,8 @@ require("lazy").setup({
 				},
 			},
 		},
+
+		-- Custom below to add your own fixture variables
 		keys = {
 			-- Run API request
 			{ "<leader>H", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
@@ -416,7 +436,7 @@ require("lazy").setup({
 		event = "VeryLazy",
 		version = false, -- Never set this value to "*"! Never!
 		opts = {
-			provider = "openai",
+			provider = "gemini",
 			openai = {
 				endpoint = "https://api.deepseek.com/v1",
 				api_key_name = "DEEPSEEK_API_KEY",
@@ -429,6 +449,7 @@ require("lazy").setup({
 			gemini = {
 				api_key_name = "GEMINI_API_KEY",
 				proxy = "http://127.0.0.1:3129",
+				model = "gemini-2.5-pro-exp-03-25",
 			},
 			copilot = {
 				proxy = "http://127.0.0.1:3129",
@@ -485,7 +506,7 @@ require("lazy").setup({
 	{
 		-- "atiladefreitas/lazyclip",
 		-- "rmrf/lazyclip",
-		 "rmrf/lazyclip",
+		dir = "~/Github/rmrf/lazyclip",
 		config = function()
 			require("lazyclip").setup({
 				-- your custom config here (optional)
@@ -498,19 +519,20 @@ require("lazy").setup({
 				function()
 					require("lazyclip.ui").copy_last_message()
 				end,
-				desc = "Copy last 10 message",
+				desc = "Copy last messages",
 			},
 		},
 		-- Optional: Load plugin when yanking text
-		event = { "TextYankPost" },
+		--event = { "TextYankPost" },
 	},
 	{
-		"rmrf/weather.nvim",
+		dir = "~/Github/rmrf/weather.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 		-- only pick the first 3 cities
-		opts = { cities = { "Shanghai", "Qingdao", "KunMing" } },
-        cmd = {"Weather"},
+		--opts = { cities = { "Shanghai" } },
+		opts = { cities = { "Shanghai", "Chengdu", "Jilin" } },
+		cmd = "Weather", -- Optional Lazy Loading
 	},
 })
