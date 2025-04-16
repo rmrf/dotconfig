@@ -62,6 +62,12 @@ vim.api.nvim_set_keymap("n", "gk", ":bdelete<CR>", { noremap = true })
 -- AsyncRun
 vim.api.nvim_set_keymap(
     "n",
+    "<leader>ai",
+    "<cmd>AsyncRun -mode=term -pos=TAB -close cd ~/Leyan/leyan-info; lazygit<CR>",
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    "n",
     "<leader>gi",
     "<cmd>AsyncRun -mode=term -pos=TAB -close lazygit<CR>",
     { noremap = true }
